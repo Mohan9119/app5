@@ -1,0 +1,16 @@
+{{ message }}
+
+<form [formGroup] = "appUserForm" (ngSubmit)="save()" *ngIf="!status">
+    First Name: <input type="text" formControlName="firstName"> <br>
+    Last Name: <input type="text" formControlName="lastName"> <br>
+    Username : <input type="text" formControlName="username"> <br>
+    <div formGroupName="address">
+        House No: <input type="text" formControlName="houseNo"><br>
+        Street No: <input type="text" formControlName="streetNo"><br>
+    </div>
+    <input type ="submit" value="submit">
+    
+
+
+
+</form>

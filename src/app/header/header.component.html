@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg">
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item active">
+            <a routerLink ="signup" *ngIf="!isLoggedIn()">Signup</a> &nbsp;
+        </li>
+        <li class="nav-item">
+            <a routerLink ="login" *ngIf="!isLoggedIn()">Login</a> &nbsp;
+        </li>
+
+        <li class="nav-item">
+            <a routerLink="forgotten-password" *ngIf="!isLoggedIn()">Forgotten Password</a> &nbsp;
+        </li>
+
+        <li class="nav-item">
+            <a routerLink="dashboard" *ngIf="isLoggedIn()">Dashboard</a> &nbsp;
+        </li>
+
+        <li class="nav-item">
+            <a routerLink="change-password" *ngIf="isLoggedIn()">changePassword</a> &nbsp;
+        </li>
+        <li class="nav-item">
+            <a routerLink ="logout" *ngIf="isLoggedIn()">Logout</a> &nbsp;
+        </li>
+    </ul>
+</nav>

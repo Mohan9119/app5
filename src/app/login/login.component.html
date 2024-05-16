@@ -1,0 +1,20 @@
+<h1>{{ message }}</h1>
+
+
+<form [formGroup]="form" (ngSubmit)="login()" *ngIf="!status">
+    <h1>Login Form</h1>
+    User Name:<input type="text" formControlName="username">  
+    <span
+        *ngIf="username?.touched && username?.invalid">
+           
+                User Name is required     
+    </span><br>
+    Password:<input type="password" formControlName="password"> 
+    <span
+        *ngIf="password?.touched && password?.invalid">
+           
+                Password is required
+    </span> <br>
+    <input type="submit" value="submit">
+    
+</form>

@@ -1,0 +1,114 @@
+<h1>{{ message }}</h1>
+
+<form [formGroup]="addProduct" (ngSubmit)="save()" *ngIf="addForm" >
+    <h1>Add a Product </h1>
+
+    Product Name: <input type="text" formControlName="productName">
+    <span>
+        
+    </span><br>
+
+    Product Price: <input type="text" formControlName="productPrice">
+    <span>
+        
+    </span><br>
+    
+
+    Product Specifications: <input type="text" formControlName="productSpecifications">
+    <span>
+        
+    </span><br>
+   
+
+    Supplier: <input type="text" formControlName="supplier">
+    <span>
+       
+    </span><br>
+    
+    <input type="submit" value="submit">
+
+</form>
+<form [formGroup]="updateProduct" (ngSubmit)="update()" *ngIf="updateForm" >
+    <h1>Update a Product </h1>
+
+    Product Name: <input type="text" formControlName="productName"><br>
+
+    Product Price: <input type="text" formControlName="productPrice"><br>
+    Product Specifications: <input type="text" formControlName="productSpecifications"><br>
+    Supplier: <input type="text" formControlName="supplier"><br>
+    
+    <input type="submit" value="submit">
+
+</form>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Specifications</th>
+        <th>Supplier</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productPrice }}</td>
+        <td>{{ product.productSpecifications }}</td>
+        <td>{{ product.supplier }}</td>
+        <td><button class="delete" (click)="delete(product.id)">Delete</button></td>
+        <td><button (click)="readForUpdate(product.id)">Update</button></td>
+    </tr>
+</table>
+
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    th, td {
+        border: 1px solid #ddd; /* Light grey border */
+        padding: 12px; /* Padding for better spacing */
+        text-align: left; /* Align text to the left */
+    }
+
+    th {
+        background-color: #f2f2f2; /* Light grey background for headers */
+        font-weight: bold; /* Bold font for headers */
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9; /* Light grey background for even rows */
+    }
+
+    tr:hover {
+        background-color: #f1f1f1; /* Light grey background on hover */
+    }
+
+    button {
+        padding: 6px 12px; /* Padding for buttons */
+        color: #fff; /* White text color */
+        background-color: #007BFF; /* Bootstrap primary color */
+        border: none; /* No border */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+    button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    button.delete {
+        background-color: #dc3545; /* Bootstrap danger color */
+    }
+
+    button.delete:hover {
+        background-color: #c82333; /* Darker red on hover */
+    }
+</style>
